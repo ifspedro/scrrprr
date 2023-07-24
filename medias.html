@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+
+  <title>Cálculo de Média Trimestral</title>
+  <script>
+    function calcularMedia() {
+      var trimestre1 = parseFloat(document.getElementById('trimestre1').value.replace(",", "."));
+      var trimestre2 = parseFloat(document.getElementById('trimestre2').value.replace(",", "."));
+      var trimestre3 = parseFloat(document.getElementById('trimestre3').value.replace(",", "."));
+
+      var media = (trimestre1 + trimestre2 + trimestre3) / 3;
+
+      document.getElementById('resultado').innerHTML = "A média dos trimestres é: " + media.toFixed(2);
+
+      if (media >= 60) {
+        document.getElementById('aprovacao').innerHTML = "Situação: Aprovado";
+      } else if (media > 30 && media < 60) {
+        document.getElementById('aprovacao').innerHTML = "Situação: Recuperação";
+      } else {
+        document.getElementById('aprovacao').innerHTML = "Situação: Reprovado";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Cálculo de Média Trimestral</h2>
+  <label for="trimestre1">Trimestre 1:</label>
+  <input type="text" id="trimestre1"><br><br>
+
+  <label for="trimestre2">Trimestre 2:</label>
+  <input type="text" id="trimestre2"><br><br>
+
+  <label for="trimestre3">Trimestre 3:</label>
+  <input type="text" id="trimestre3"><br><br>
+
+  <button onclick="calcularMedia()">Calcular Média</button>
+
+  <div id="resultado"></div>
+  <div id="aprovacao"></div>
+</body>
+</html>
